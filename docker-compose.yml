@@ -26,11 +26,10 @@ services:
       - monitoring
 
   prometheus:
-    image: prom/prometheus:latest
+    build: ./prometheus
     container_name: prometheus
     restart: unless-stopped
     volumes:
-      - ${PWD}/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
