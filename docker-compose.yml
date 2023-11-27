@@ -56,3 +56,19 @@ services:
       - 3000:3000
     networks:
       - monitoring
+
+  fprobe:
+    build: ./fprobe
+    container_name: fprobe
+    restart: unless-stopped
+    network_mode: "host"
+
+  telegraf:
+    build: ./telegraf
+    container_name: telegraf
+    restart: unless-stopped
+    ports:
+      - 2055:2055/udp
+      - 9103:9103
+    networks:
+      - monitoring
