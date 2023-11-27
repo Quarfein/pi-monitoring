@@ -82,10 +82,10 @@ services:
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
-      - DOCKER_INFLUXDB_INIT_PASSWORD=secret
+      - DOCKER_INFLUXDB_INIT_PASSWORD=secret-password
       - DOCKER_INFLUXDB_INIT_ORG=home
       - DOCKER_INFLUXDB_INIT_BUCKET=netflow
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=secret
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=secret-token
       - DOCKER_INFLUXDB_INIT_RETENTION=1w
     ports:
       - 8086:8086
