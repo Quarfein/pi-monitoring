@@ -5,6 +5,7 @@ networks:
 volumes:
   prometheus_data: {}
   grafana_data: {}
+  influxdb_data: {}
 
 services:
   node-exporter:
@@ -69,6 +70,24 @@ services:
     restart: unless-stopped
     ports:
       - 2055:2055
-      - 9103:9103
+    networks:
+      - monitoring
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: unless-stopped
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=secret
+      - DOCKER_INFLUXDB_INIT_ORG=home
+      - DOCKER_INFLUXDB_INIT_BUCKET=netflow
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=secret
+      - DOCKER_INFLUXDB_INIT_RETENTION=1w
+    ports:
+      - 8086:8086
     networks:
       - monitoring
