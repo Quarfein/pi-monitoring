@@ -68,7 +68,7 @@ services:
     container_name: telegraf
     restart: unless-stopped
     ports:
-      - 2055:2055/udp
+      - 2055:2055
       - 9103:9103
     networks:
       - monitoring
