@@ -250,7 +250,7 @@ docker-compose down -v
 ## Resource Requirements
 
 Minimum recommended specifications:
-- CPU: 1GB RAM minimum, 2GB recommended
+- RAM: 1GB minimum, 2GB recommended
 - Storage: 8GB free space (more for longer retention)
 - Network: 100Mbps (for network flow monitoring)
 
