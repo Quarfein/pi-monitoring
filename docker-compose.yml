@@ -9,7 +9,7 @@ volumes:
 
 services:
   node-exporter:
-    image: prom/node-exporter:latest
+    image: prom/node-exporter:v1.8.2
     container_name: node-exporter
     restart: unless-stopped
     volumes:
@@ -35,8 +35,8 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
-      - '--storage.tsdb.retention.time=15d'
-      - '--storage.tsdb.retention.size=8GB'
+      - '--storage.tsdb.retention.time=7d'
+      - '--storage.tsdb.retention.size=4GB'
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--web.enable-lifecycle'
@@ -46,7 +46,7 @@ services:
       - monitoring
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:11.3.0
     container_name: grafana
     restart: unless-stopped
     volumes:
@@ -74,7 +74,7 @@ services:
       - monitoring
 
   influxdb:
-    image: influxdb:latest
+    image: influxdb:2.7.10
     container_name: influxdb
     restart: unless-stopped
     volumes:

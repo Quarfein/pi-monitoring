@@ -1,3 +1,3 @@
-FROM prom/prometheus
+FROM prom/prometheus:v2.54.1
 
-ADD prometheus.yml /etc/prometheus/prometheus.yml
+COPY prometheus.yml /etc/prometheus/prometheus.yml
