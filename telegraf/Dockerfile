@@ -1,3 +1,3 @@
-FROM telegraf
+FROM telegraf:1.32
 
-ADD telegraf.conf /etc/telegraf/telegraf.conf
+COPY telegraf.conf /etc/telegraf/telegraf.conf

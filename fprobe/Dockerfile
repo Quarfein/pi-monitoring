@@ -1,5 +1,5 @@
-FROM alpine
+FROM alpine:3.19
 
-RUN apk update && apk upgrade && apk add --no-cache fprobe
+RUN apk add --no-cache fprobe
 
-ENTRYPOINT fprobe -i wlan0 -fip -l 2 localhost:2055
+ENTRYPOINT ["fprobe", "-i", "wlan0", "-fip", "-l", "2", "localhost:2055"]
